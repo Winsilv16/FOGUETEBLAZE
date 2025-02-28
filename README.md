@@ -391,6 +391,13 @@ running = True
 if menu_inicial(game_state):
     running = False
 
+while running:
+    inicializar_jogo(game_state)
+    game_active = True  # Variável para controlar o estado do jogo
+    while game_active:
+        clock.tick(60)
+    
+
 
     
 

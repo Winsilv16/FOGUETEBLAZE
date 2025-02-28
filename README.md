@@ -271,6 +271,41 @@ def menu_dificuldade(game_state):
             altura * 3 // 4,
         )
         pygame.display.flip()
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_1:
+                    game_state["dificuldade"] = 1
+                    game_state["asteroide_frequencia"] = 60
+                    game_state["max_asteroides"] = 10
+                    game_state["monstro_frequencia"] = float("inf")
+                    game_state["boss_frequencia"] = float("inf")  # Sem Bosses
+                    selecionando_dificuldade = False
+                elif event.key == pygame.K_2:
+                    game_state["dificuldade"] = 2
+                    game_state["asteroide_frequencia"] = 45
+                    game_state["max_asteroides"] = 15
+                    game_state["monstro_frequencia"] = 7000
+                    game_state[
+                        "boss_frequencia"
+                    ] = 15000  # Bosses aparecem a cada 15 segundos
+                    selecionando_dificuldade = False
+                elif event.key == pygame.K_3:
+                    game_state["dificuldade"] = 3
+                    game_state["asteroide_frequencia"] = 30
+                    game_state["max_asteroides"] = 20
+                    game_state["monstro_frequencia"] = 5000
+                    game_state[
+                        "boss_frequencia"
+                    ] = 10000  # Bosses aparecem a cada 10 segundos
+                    selecionando_dificuldade = False
+
+    return game_state
+ 
+
 
 
 

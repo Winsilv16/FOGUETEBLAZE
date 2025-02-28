@@ -488,6 +488,30 @@ while running:
                         criar_boss(game_state["dificuldade"] * 0.4)  # Ajusta a velocidade base
                     break
 
+            # Colisões entre a nave e asteroides/monstros/chefes
+            colisoes_nave = pygame.sprite.spritecollide(
+                nave, asteroides, True
+            )  # Remove o asteroide
+            if colisoes_nave:
+                game_active = False  # Fim de jogo
+                game_over = True
+                som_explosao.play()
+
+            colisoes_nave_monstros = pygame.sprite.spritecollide(
+                nave, monstros, True
+            )  # Remove o monstro
+            if colisoes_nave_monstros:
+                game_active = False  # Fim de jogo
+                game_over = True
+                som_explosao.play()
+
+            colisoes_nave_bosses = pygame.sprite.spritecollide(nave, bosses, True)
+            if colisoes_nave_bosses:
+                game_active = False
+                game_over = True
+                som_explosao.play()
+                
+
 
 
 

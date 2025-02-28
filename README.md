@@ -416,6 +416,19 @@ while running:
                         running = False  # Se o jogador sair do menu, encerra o jogo
                     break  
 
+
+        if game_active:
+            # Atualizar
+            todos_sprites.update()
+
+             # Criar asteroides
+            agora = pygame.time.get_ticks()
+            if agora - ultimo_asteroide > asteroide_frequencia:
+                ultimo_asteroide = agora
+                if len(asteroides) < max_asteroides:
+                    a = Asteroide(game_state["dificuldade"] * 0.5)  # Ajusta a velocidade base
+                    todos_sprites.add(a)
+                    asteroides.add(a)
     
 
 

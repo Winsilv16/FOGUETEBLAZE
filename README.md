@@ -186,6 +186,35 @@ class ContadorAsteroides:
     def obter_total(self):
         return self.total_destruidos
 
+        def exibir_placar(surf, texto, tamanho, x, y):
+    fonte = pygame.font.Font(None, tamanho)
+    texto_surface = fonte.render(texto, True, branco)
+    texto_rect = texto_surface.get_rect()
+    texto_rect.midtop = (x, y)
+    surf.blit(texto_surface, texto_rect)
+
+
+def desenhar_texto(surf, texto, tamanho, cor, x, y):
+    fonte = pygame.font.Font(None, tamanho)
+    texto_surface = fonte.render(texto, True, cor)
+    texto_rect = texto_surface.get_rect()
+    texto_rect.center = (x, y)
+    surf.blit(texto_surface, texto_rect)
+
+
+def carregar_recorde():
+    try:
+        with open("recorde.txt", "r") as f:
+            return int(f.read())
+    except FileNotFoundError:
+        return 0
+
+
+def salvar_recorde(recorde):
+    with open("recorde.txt", "w") as f:
+        f.write(str(recorde))
+
+
 
 
 

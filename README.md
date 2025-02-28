@@ -220,6 +220,24 @@ def criar_asteroides(num_asteroides, velocidade_base):
         todos_sprites.add(a)
         asteroides.add(a)
 
+# Variáveis Globais
+clock = pygame.time.Clock()
+pontuacao = 0
+recorde = carregar_recorde()
+game_over = False
+running = True
+no_menu = True
+asteroide_frequencia = 60  # Inicialmente, um asteroide a cada 60 frames
+ultimo_asteroide = pygame.time.get_ticks()
+max_asteroides = 20
+contador_asteroides = ContadorAsteroides()
+dificuldade = 1  # Nível de dificuldade padrão
+monstros = pygame.sprite.Group()  # Grupo para os monstros
+monstro_frequencia = 7000  # Um monstro a cada 7 segundos (em milissegundos)
+bosses = pygame.sprite.Group()  # Grupo para os chefes
+boss_frequencia = 10000  # Um boss a cada 10 segundos (em milissegundos)
+ultimo_boss = pygame.time.get_ticks()
+
 
 
 

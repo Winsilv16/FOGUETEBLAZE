@@ -110,6 +110,16 @@ class Nave(pygame.sprite.Sprite):
         self.rect.x += self.speedx
         self.rect.y += self.speedy
 
+         # Reverter direção ao atingir as bordas
+        if self.rect.left < 0 or self.rect.right > largura:
+            self.speedx *= -1
+
+        if self.rect.top > altura + 10:
+            self.rect.x = random.randrange(largura - self.rect.width)
+            self.rect.y = random.randrange(-150, -80)
+            self.speedy = random.randrange(1, 3)
+            self.speedx = random.choice([-2, 2])
+
 
 
 

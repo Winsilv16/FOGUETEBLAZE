@@ -421,7 +421,7 @@ while running:
             # Atualizar
             todos_sprites.update()
 
-             # Criar asteroides
+            # Criar asteroides
             agora = pygame.time.get_ticks()
             if agora - ultimo_asteroide > asteroide_frequencia:
                 ultimo_asteroide = agora
@@ -429,6 +429,17 @@ while running:
                     a = Asteroide(game_state["dificuldade"] * 0.5)  # Ajusta a velocidade base
                     todos_sprites.add(a)
                     asteroides.add(a)
+
+            # Criar monstros
+            if (
+                game_state["monstro_frequencia"] != float("inf")
+                and agora - game_state["ultimo_monstro"]
+                > game_state["monstro_frequencia"]
+            ):
+                game_state["ultimo_monstro"] = agora
+                monstro = Monstro(game_state["dificuldade"] * 0.3)  # Ajusta a velocidade base
+                todos_sprites.add(monstro)
+                monstros.add(monstro)
     
 
 

@@ -248,6 +248,31 @@ def menu_dificuldade(game_state):
 
     selecionando_dificuldade = True
 
+    while selecionando_dificuldade:
+        tela.blit(fundo_img, (0, 0))
+        desenhar_texto(
+            tela, "Selecione a Dificuldade", 48, branco, largura // 2, altura // 4
+        )
+        desenhar_texto(
+            tela, "1 - Fácil", 32, branco, largura // 2, altura // 2 - 30
+        )
+        desenhar_texto(
+            tela, "2 - Médio", 32, branco, largura // 2, altura // 2 + 20
+        )
+        desenhar_texto(
+            tela, "3 - Difícil(Rápido)", 32, branco, largura // 2, altura // 2 + 70
+        )
+        desenhar_texto(
+            tela,
+            "Pressione a tecla correspondente",
+            24,
+            branco,
+            largura // 2,
+            altura * 3 // 4,
+        )
+        pygame.display.flip()
+
+
 
 
 

@@ -119,7 +119,12 @@ class Nave(pygame.sprite.Sprite):
             self.rect.y = random.randrange(-150, -80)
             self.speedy = random.randrange(1, 3)
             self.speedx = random.choice([-2, 2])
-
+     def tomar_dano(self):
+        self.health -= 1
+        if self.health <= 0:
+            self.kill()  # Remove o monstro se a vida acabar
+            return True  # Indica que o monstro foi destruído
+        return False  # Indica que o monstro ainda está vivo
 
 
 

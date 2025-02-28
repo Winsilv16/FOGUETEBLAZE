@@ -440,6 +440,17 @@ while running:
                 monstro = Monstro(game_state["dificuldade"] * 0.3)  # Ajusta a velocidade base
                 todos_sprites.add(monstro)
                 monstros.add(monstro)
+
+            # Criar chefes
+            if (
+                game_state["boss_frequencia"] != float("inf")
+                and agora - game_state["ultimo_boss"] > game_state["boss_frequencia"]
+            ):
+                game_state["ultimo_boss"] = agora
+                criar_boss(game_state["dificuldade"] * 0.4)  # Ajusta a velocidade base
+
+
+                
     
 
 

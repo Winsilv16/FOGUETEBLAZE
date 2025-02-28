@@ -336,7 +336,7 @@ def menu_inicial(game_state):
                     quit()
     return True  # Indica para sair do jogo
 
-    # Iniciar o Jogo
+    # Inicialização o Jogo
 def inicializar_jogo(game_state):
     global todos_sprites, asteroides, projeteis, nave, monstros, bosses, contador_asteroides, pontuacao
 
@@ -347,6 +347,18 @@ def inicializar_jogo(game_state):
     bosses = pygame.sprite.Group()
     nave = Nave()
     todos_sprites.add(nave)
+
+    if game_state["dificuldade"] == 1:
+        criar_asteroides(8, 0.5)  # Fácil: 8 asteroides, velocidade base 0.5
+    elif game_state["dificuldade"] == 2:
+        criar_asteroides(12, 0.75)  # Médio: 12 asteroides, velocidade base 0.75
+    elif game_state["dificuldade"] == 3:
+        criar_asteroides(16, 1)  # Difícil: 16 asteroides, velocidade base 1
+
+    contador_asteroides = ContadorAsteroides()
+    pontuacao = 0
+
+    
 
 
         

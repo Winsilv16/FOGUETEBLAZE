@@ -568,6 +568,32 @@ while running:
         )
         pygame.display.flip()
 
+        aguardando = True
+        while aguardando:
+            clock.tick(30)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+                    aguardando = False
+                if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_ESCAPE:
+                        # Retorna ao menu inicial
+                        aguardando = False
+                        game_over = False
+                        inicializar_jogo(game_state)  # Reinicializa o jogo
+                        if menu_inicial(game_state):  # Mostra o menu inicial novamente
+                            running = False  # Se o jogador sair do menu, encerra o jogo
+                        break
+                    else:
+                        aguardando = False
+                        game_over = False
+                        # Reinicializar o jogo
+                        inicializar_jogo(game_state)
+                        break
+
+pygame.quit()
+
+
 
                 
 

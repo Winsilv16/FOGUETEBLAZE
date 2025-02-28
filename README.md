@@ -126,6 +126,32 @@ class Nave(pygame.sprite.Sprite):
             return True  # Indica que o monstro foi destruído
         return False  # Indica que o monstro ainda está vivo
 
+class Boss(pygame.sprite.Sprite):
+    def __init__(self, img, velocidade_base):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = img
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randrange(largura - self.rect.width)
+        self.rect.y = random.randrange(-150, -80)
+        self.speedy = random.randrange(1, 3) * velocidade_base
+        self.speedx = random.choice([-2, 2]) * velocidade_base
+        self.health = 5  # Mais vida que o monstro normal
+
+    def update(self):
+        self.rect.x += self.speedx
+        self.rect.y += self.speedy
+
+        # Reverter direção ao atingir as bordas
+        if self.rect.left < 0 or self.rect.right > largura:
+            self.speedx *= -1
+
+        if self.rect.top > altura + 10:
+            self.rect.x = random.randrange(largura - self.rect.width)
+            self.rect.y = random.randrange(-150, -80)
+            self.speedy = random.randrange(1, 3)
+            self.speedx = random.choice([-2, 2])
+
+
 
 
 

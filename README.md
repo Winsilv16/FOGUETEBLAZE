@@ -475,6 +475,20 @@ while running:
                         monstros.add(monstro)
                     break 
 
+            # Colisões entre projéteis e chefes
+            colisoes_bosses = pygame.sprite.groupcollide(
+                bosses, projeteis, False, True
+            ) 
+            for boss, projeteis_atingidos in colisoes_bosses.items():
+                for projetil in projeteis_atingidos:
+                    if boss.tomar_dano(): 
+                        pontuacao += 100  # Pontuação alta por destruir chefes
+                        som_explosao.play()
+                        # Criar novo chefe
+                        criar_boss(game_state["dificuldade"] * 0.4)  # Ajusta a velocidade base
+                    break
+
+
 
 
                 

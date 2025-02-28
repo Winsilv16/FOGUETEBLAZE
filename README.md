@@ -32,4 +32,8 @@ fundo_img = pygame.transform.scale(fundo_img, (largura, altura))
 tiro_img = pygame.transform.scale(tiro_img, (10, 20))
 monstro_img = pygame.transform.scale(monstro_img, (80, 80))  # Escala do monstro
 
+alexandre_img = pygame.transform.scale(alexandre_img, (80, 80))
+silvia_img = pygame.transform.scale(silvia_img, (80, 80))
+dani_img = pygame.transform.scale(dani_img, (80, 80))
+
 

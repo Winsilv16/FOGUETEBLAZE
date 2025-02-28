@@ -238,6 +238,16 @@ bosses = pygame.sprite.Group()  # Grupo para os chefes
 boss_frequencia = 10000  # Um boss a cada 10 segundos (em milissegundos)
 ultimo_boss = pygame.time.get_ticks()
 
+# Menu de Dificuldade
+def menu_dificuldade(game_state):
+    dificuldade = game_state["dificuldade"]
+    asteroide_frequencia = game_state["asteroide_frequencia"]
+    max_asteroides = game_state["max_asteroides"]
+    monstro_frequencia = game_state["monstro_frequencia"]
+    boss_frequencia = game_state["boss_frequencia"]
+
+    selecionando_dificuldade = True
+
 
 
 

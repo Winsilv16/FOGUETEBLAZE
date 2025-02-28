@@ -449,6 +449,17 @@ while running:
                 game_state["ultimo_boss"] = agora
                 criar_boss(game_state["dificuldade"] * 0.4)  # Ajusta a velocidade base
 
+            # Colisões entre projéteis e asteroides
+            colisoes = pygame.sprite.groupcollide(asteroides, projeteis, True, True)
+            for colisao in colisoes:
+                pontuacao += 10
+                som_explosao.play()
+                contador_asteroides.incrementa()
+                # Recriar asteroide
+                a = Asteroide(game_state["dificuldade"] * 0.5)  # Ajusta a velocidade base
+                todos_sprites.add(a)
+                asteroides.add(a)
+
 
                 
     

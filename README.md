@@ -319,6 +319,26 @@ def menu_inicial(game_state):
             tela, "Aperte ESC para sair", 32, branco, largura // 2, (altura // 2) + 50
         )
         pygame.display.flip()
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    no_menu = False
+                    game_state = (
+                        menu_dificuldade(game_state)
+                    )  # Abre o menu de dificuldade
+                    return False  # Indica para não sair do jogo
+                if event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    quit()
+    return True  # Indica para sair do jogo
+
+
+        
+
  
 
 

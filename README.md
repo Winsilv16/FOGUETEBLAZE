@@ -510,6 +510,25 @@ while running:
                 game_active = False
                 game_over = True
                 som_explosao.play()
+
+                
+            # Desenhar
+            tela.blit(fundo_img, (0, 0))
+            todos_sprites.draw(tela)
+
+            # Placar
+            exibir_placar(
+                tela, "Pontuação: " + str(pontuacao), 32, largura // 2, 10
+            )
+            exibir_placar(tela, "Recorde: " + str(recorde), 24, largura // 4, 10)
+            exibir_placar(
+                tela,
+                "Asteroides Destruídos: " + str(contador_asteroides.obter_total()),
+                24,
+                largura * 3 // 4,
+                10,
+            )
+
                 
 
 

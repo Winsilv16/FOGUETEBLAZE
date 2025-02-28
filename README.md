@@ -358,6 +358,26 @@ def inicializar_jogo(game_state):
     contador_asteroides = ContadorAsteroides()
     pontuacao = 0
 
+    # Função para criar Bosses aleatórios
+def criar_boss(velocidade_base):
+    boss_type = random.choice(
+        ["Alexandre","Silvia", "Dani"]
+    )  # Escolhe um boss aleatório
+    if boss_type == "Alexandre":
+        boss = Alexandre(velocidade_base)
+    elif boss_type == "Silvia":
+        boss = Silvia(velocidade_base)
+    elif boss_type == "Dani":
+        boss = Dani(velocidade_base)
+    else:
+        return 
+
+    todos_sprites.add(boss)
+    bosses.add(boss)
+
+    
+
+
     
 
 

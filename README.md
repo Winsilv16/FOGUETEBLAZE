@@ -151,6 +151,14 @@ class Boss(pygame.sprite.Sprite):
             self.speedy = random.randrange(1, 3)
             self.speedx = random.choice([-2, 2])
 
+    def tomar_dano(self):
+        self.health -= 1
+        if self.health <= 0:
+            self.kill()
+            return True
+        return False
+
+
 
 
 

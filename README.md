@@ -396,6 +396,26 @@ while running:
     game_active = True  # Variável para controlar o estado do jogo
     while game_active:
         clock.tick(60)
+
+          # Eventos
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                game_active = False
+                running = False
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    tiro = Projeteil(nave)
+                    todos_sprites.add(tiro)
+                    projeteis.add(tiro)
+                    som_tiro.play()
+                if event.key == pygame.K_ESCAPE:
+                    # Retorna ao menu inicial
+                    game_active = False
+                    inicializar_jogo(game_state)  # Reinicializa o jogo
+                    if menu_inicial(game_state):  # Mostra o menu inicial novamente
+                        running = False  # Se o jogador sair do menu, encerra o jogo
+                    break  
+
     
 
 

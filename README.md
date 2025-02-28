@@ -158,6 +158,33 @@ class Boss(pygame.sprite.Sprite):
             return True
         return False
 
+class Alexandre(Boss):
+    def __init__(self, velocidade_base):
+        super().__init__(alexandre_img, velocidade_base)
+        
+
+class Silvia(Boss):
+    def __init__(self, velocidade_base):
+        super().__init__(silvia_img, velocidade_base)
+
+
+class Dani(Boss):
+    def __init__(self, velocidade_base):
+        super().__init__(dani_img, velocidade_base)
+
+
+class ContadorAsteroides:
+    def __init__(self):
+        self.total_destruidos = 0
+
+    def incrementa(self):
+        self.total_destruidos += 1
+
+    def resetar(self):
+        self.total_destruidos = 0
+
+    def obter_total(self):
+        return self.total_destruidos
 
 
 

@@ -304,6 +304,21 @@ def menu_dificuldade(game_state):
                     selecionando_dificuldade = False
 
     return game_state
+
+# Menu Inicial
+def menu_inicial(game_state):
+    global no_menu, running
+    no_menu = True
+    while no_menu:
+        tela.blit(fundo_img, (0, 0))
+        desenhar_texto(tela, "Foguete Blaze", 64, branco, largura // 2, altura // 4)
+        desenhar_texto(
+            tela, "Aperte ESPAÇO para começar", 32, branco, largura // 2, altura // 2
+        )
+        desenhar_texto(
+            tela, "Aperte ESC para sair", 32, branco, largura // 2, (altura // 2) + 50
+        )
+        pygame.display.flip()
  
 
 

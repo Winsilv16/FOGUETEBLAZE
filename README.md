@@ -36,4 +36,27 @@ alexandre_img = pygame.transform.scale(alexandre_img, (80, 80))
 silvia_img = pygame.transform.scale(silvia_img, (80, 80))
 dani_img = pygame.transform.scale(dani_img, (80, 80))
 
+class Nave(pygame.sprite.Sprite):
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = nave_img
+        self.rect = self.image.get_rect()
+        self.rect.centerx = largura // 2
+        self.rect.bottom = altura - 10
+        self.speedx = 0
+
+    def update(self):
+        self.speedx = 0
+        keystate = pygame.key.get_pressed()
+        if keystate[pygame.K_LEFT]:
+            self.speedx = -5
+        if keystate[pygame.K_RIGHT]:
+            self.speedx = 5
+        self.rect.x += self.speedx
+        if self.rect.left < 0:
+            self.rect.left = 0
+        if self.rect.right > largura:
+            self.rect.right = largura
+
+
 

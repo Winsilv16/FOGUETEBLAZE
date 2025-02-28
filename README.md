@@ -81,6 +81,22 @@ class Nave(pygame.sprite.Sprite):
             self.speedy = random.randrange(1, 8)
             self.speedx = random.randrange(-3, 3)
 
+            class Projeteil(pygame.sprite.Sprite):
+    def __init__(self, nave):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = tiro_img  # Usa a imagem carregada
+        self.rect = self.image.get_rect()
+        self.rect.centerx = nave.rect.centerx
+        self.rect.top = nave.rect.top
+        self.speedy = -10  # Velocidade do projétil
+
+    def update(self):
+        self.rect.y += self.speedy
+        if self.rect.bottom < 0:
+            self.kill()  # Remove o projétil quando ele sai da tela
+
+
+
 
 
 

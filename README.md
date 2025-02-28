@@ -336,6 +336,18 @@ def menu_inicial(game_state):
                     quit()
     return True  # Indica para sair do jogo
 
+    # Iniciar o Jogo
+def inicializar_jogo(game_state):
+    global todos_sprites, asteroides, projeteis, nave, monstros, bosses, contador_asteroides, pontuacao
+
+    todos_sprites = pygame.sprite.Group()
+    asteroides = pygame.sprite.Group()
+    projeteis = pygame.sprite.Group()
+    monstros = pygame.sprite.Group()
+    bosses = pygame.sprite.Group()
+    nave = Nave()
+    todos_sprites.add(nave)
+
 
         
 

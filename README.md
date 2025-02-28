@@ -529,6 +529,46 @@ while running:
                 10,
             )
 
+            # Após o loop principal, antes de encerrar o programa
+            if pontuacao > recorde:
+                recorde = pontuacao
+                salvar_recorde(recorde)
+
+            pygame.display.flip()
+
+    if game_over:
+        tela.fill(preto)
+        desenhar_texto(tela, "GAME OVER", 64, vermelho, largura // 2, altura // 4)
+        desenhar_texto(
+            tela, "Pontuação: " + str(pontuacao), 32, branco, largura // 2, altura // 2
+        )
+        desenhar_texto(
+            tela,
+            "Recorde: " + str(recorde),
+            32,
+            branco,
+            largura // 2,
+            altura // 2 + 50,
+        )
+        desenhar_texto(
+            tela,
+            "Asteroides Destruídos: " + str(contador_asteroides.obter_total()),
+            32,
+            branco,
+            largura // 2,
+            altura // 2 + 100,
+        )
+        desenhar_texto(
+            tela,
+            "Pressione qualquer tecla para jogar novamente ou ESC para o menu",
+            24,
+            branco,
+            largura // 2,
+            altura // 2 + 150,
+        )
+        pygame.display.flip()
+
+
                 
 
 

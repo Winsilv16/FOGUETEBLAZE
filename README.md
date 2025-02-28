@@ -214,6 +214,11 @@ def salvar_recorde(recorde):
     with open("recorde.txt", "w") as f:
         f.write(str(recorde))
 
+def criar_asteroides(num_asteroides, velocidade_base):
+    for i in range(num_asteroides):
+        a = Asteroide(velocidade_base)
+        todos_sprites.add(a)
+        asteroides.add(a)
 
 
 

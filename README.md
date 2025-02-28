@@ -376,6 +376,23 @@ def criar_boss(velocidade_base):
     bosses.add(boss)
 
     
+# Game State Inicial
+game_state = {
+    "dificuldade": 1,
+    "asteroide_frequencia": 60,
+    "max_asteroides": 20,
+    "monstro_frequencia": 7000,
+    "ultimo_monstro": pygame.time.get_ticks(),
+    "boss_frequencia": 10000,
+    "ultimo_boss": pygame.time.get_ticks(),
+}
+running = True
+
+if menu_inicial(game_state):
+    running = False
+
+
+    
 
 
     

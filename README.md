@@ -460,6 +460,22 @@ while running:
                 todos_sprites.add(a)
                 asteroides.add(a)
 
+            # Colisões entre projéteis e monstros
+            colisoes_monstros = pygame.sprite.groupcollide(
+                monstros, projeteis, False, True
+            ) 
+            for monstro, projeteis_atingidos in colisoes_monstros.items():
+                for projetil in projeteis_atingidos:
+                    if monstro.tomar_dano(): 
+                        pontuacao += 50  # Dá mais pontos por destruir monstros
+                        som_explosao.play()  # Toca o som de explosão
+                        # Criar novo monstro
+                        monstro = Monstro(game_state["dificuldade"] * 0.3)  # Ajusta a velocidade base
+                        todos_sprites.add(monstro)
+                        monstros.add(monstro)
+                    break 
+
+
 
                 
     

@@ -95,6 +95,22 @@ class Nave(pygame.sprite.Sprite):
         if self.rect.bottom < 0:
             self.kill()  # Remove o projétil quando ele sai da tela
 
+            class Monstro(pygame.sprite.Sprite):
+    def __init__(self, velocidade_base):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = monstro_img
+        self.rect = self.image.get_rect()
+        self.rect.x = random.randrange(largura - self.rect.width)
+        self.rect.y = random.randrange(-150, -80)
+        self.speedy = random.randrange(1, 3) * velocidade_base  # Mais lento que asteroides
+        self.speedx = random.choice([-2, 2]) * velocidade_base  # Movimento lateral
+        self.health = 3  # Vida do monstro (quantos tiros aguenta)
+
+    def update(self):
+        self.rect.x += self.speedx
+        self.rect.y += self.speedy
+
+
 
 
 
